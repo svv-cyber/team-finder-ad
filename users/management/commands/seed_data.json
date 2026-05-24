@@ -1,0 +1,90 @@
+{
+    "projects": [
+        {
+            "owner_email": "ekaterina@example.com",
+            "name": "Система мониторинга серверов",
+            "description": "Веб-платформа для отслеживания метрик серверов и отправки уведомлений.",
+            "github_url": "https://github.com/techmonitor/server-metrics-dashboard",
+            "status": "open",
+            "skills": ["Java", "Spring Boot", "MongoDB"],
+            "participants": ["alexey@example.com"]
+        },
+        {
+            "owner_email": "alexey@example.com",
+            "name": "Пайплайны для микросервисов",
+            "description": "CI/CD-шаблоны для автоматизации развёртывания микросервисов в Kubernetes.",
+            "github_url": "https://github.com/devops-tools/k8s-cicd-templates",
+            "status": "open",
+            "skills": ["Kubernetes", "AWS", "Go"],
+            "participants": ["ekaterina@example.com"]
+        },
+        {
+            "owner_email": "dmitry@example.com",
+            "name": "Конструктор дашбордов",
+            "description": "Инструмент для визуализации данных с возможностью кастомизации виджетов.",
+            "github_url": "https://github.com/data-viz/dashboard-factory",
+            "status": "open",
+            "skills": ["Vue.js", "GraphQL", "Tailwind CSS"],
+            "participants": ["maria@example.com"]
+        },
+        {
+            "owner_email": "maria@example.com",
+            "name": "Компоненты интерфейса CodeFlow",
+            "description": "Библиотека переиспользуемых UI-компонентов для платформы CodeFlow.",
+            "github_url": "https://github.com/codeflow/ui-component-library",
+            "status": "closed",
+            "skills": ["Figma", "Tailwind CSS"],
+            "participants": []
+        }
+    ],
+    "users": [
+        {
+            "email": "ekaterina@example.com",
+            "name": "Екатерина",
+            "surname": "Михайлова",
+            "about": "Бэкенд-разработчик с пятилетним опытом создания высоконагруженных систем. Интересуюсь микросервисной архитектурой, паттернами проектирования и оптимизацией баз данных. В свободное время изучаю новые технологии и участвую в open-source проектах. Люблю решать сложные задачи и делиться знаниями с коллегами. Ищу единомышленников для создания амбициозных проектов.",
+            "phone": "+79991111111",
+            "github_url": "https://github.com/katya-dev",
+            "skills": ["Java", "Spring Boot", "MongoDB"]
+        },
+        {
+            "email": "alexey@example.com",
+            "name": "Алексей",
+            "surname": "Новиков",
+            "about": "DevOps-инженер с глубокими знаниями в области облачных технологий и контейнеризации. Автоматизирую всё, что можно автоматизировать, от сборки приложений до развёртывания инфраструктуры. Имею опыт работы с Kubernetes, Docker, Terraform и Ansible. Считаю, что хорошая инфраструктура должна быть надёжной, масштабируемой и описываться кодом. Готов делиться опытом и учиться новому.",
+            "phone": "+79991111144",
+            "github_url": "https://github.com/alexey-cloudops",
+            "skills": ["Kubernetes", "AWS", "Go"]
+        },
+        {
+            "email": "dmitry@example.com",
+            "name": "Дмитрий",
+            "surname": "Соколов",
+            "about": "Фронтенд-разработчик с четырёхлетним стажем, специализируюсь на создании современных адаптивных веб-интерфейсов. В работе использую Vue.js, React и TypeScript. Уделяю особое внимание производительности, доступности и пользовательскому опыту. Люблю экспериментировать с новыми инструментами и делиться находками в профессиональных сообществах. Ищу команду для реализации интересных pet-проектов.",
+            "phone": "+79991111122",
+            "github_url": "https://github.com/frontend-dmitry",
+            "skills": ["Vue.js", "GraphQL", "Tailwind CSS"]
+        },
+        {
+            "email": "maria@example.com",
+            "name": "Мария",
+            "surname": "Волкова",
+            "about": "UI/UX-дизайнер с опытом веб-дизайна и прототипирования более трёх лет. Создаю удобные и эстетичные интерфейсы, которые решают реальные задачи пользователей. Владею Figma, Sketch и Adobe Creative Suite. Изучаю основы фронтенд-разработки, чтобы лучше понимать возможности реализации своих идей. Открыта к сотрудничеству с разработчиками для создания качественных продуктов.",
+            "phone": "+79991111133",
+            "github_url": "https://github.com/maria-ui-ux",
+            "skills": ["Figma", "Tailwind CSS"]
+        }
+    ],
+    "skills": [
+        "Java",
+        "Go",
+        "Vue.js",
+        "Spring Boot",
+        "MongoDB",
+        "Kubernetes",
+        "AWS",
+        "Tailwind CSS",
+        "GraphQL",
+        "Figma"
+    ]
+}

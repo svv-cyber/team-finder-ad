@@ -1,0 +1,505 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6ea8d8 0%, #f0a6c0 50%, #c394d4 100%) !important;
+    background-attachment: fixed !important;
+    color: white !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: white !important;
+}
+
+a {
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.2s ease !important;
+}
+
+a:hover {
+    color: #1a1a2e !important;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 1.25rem;
+    transition: all 0.3s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-5px) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.favorite svg {
+    fill: red;
+    stroke: red;
+}
+
+.not-favorite svg {
+    fill: none;
+    stroke: #555555;
+}
+
+svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    stroke: currentColor;
+}
+
+span {
+    display: flex;
+}
+
+span svg {
+    margin-top: 2px;
+}
+
+.project-card,
+.participant-card,
+.skills-filter-card,
+.profile-header,
+.project-skills,
+.project-participants-card,
+.profile-container > div,
+.project-container,
+.project-create-container,
+.profile-edit-container,
+.user-sidebar,
+.sidebar-overlay,
+.project-card-footer,
+.project-card-header,
+.project-actions,
+.site-header,
+.participants-list,
+.participant-item,
+.profile-projects-list .project-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.project-card:hover,
+.card:hover,
+.profile-projects-list .project-card:hover {
+    transform: translateY(-5px) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.site-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.black-button,
+.save-button,
+.btn-primary,
+button[type="submit"],
+.project-create-form .save-button,
+.profile-actions .btn-primary,
+button.black-button,
+a.black-button,
+.white-button,
+.cancel-button,
+.share-button,
+.black-button-share,
+header .black-button,
+a.black-button[href="/projects/create/"] {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 40px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+
+.black-button:hover,
+.save-button:hover,
+button.black-button:hover,
+.share-button:hover,
+.black-button-share:hover,
+header .black-button:hover,
+a.black-button[href="/projects/create/"]:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    transform: translateY(-2px) !important;
+}
+
+.project-date,
+small,
+.date,
+.project-date small,
+time,
+.project-card-footer small,
+.participant-role,
+.profile-projects-list .project-card .project-date {
+    color: #1a1a2e !important;
+    font-weight: 600 !important;
+}
+
+body,
+.project-title,
+.project-subtitle,
+.filter-label,
+.nav-link,
+.username,
+h1, h2, h3, h4, h5, h6,
+p, span, label, div,
+.project-description,
+.project-card-description,
+.participant-name,
+.project-author,
+.project-owner a,
+.project-card-title a,
+.project-participants,
+.filter-chip,
+.about-text,
+.profile-description,
+.contact-info,
+.skills-container,
+.project-skills p,
+.project-skills h3,
+.project-participants-card h3,
+.participant-item span,
+.profile-name,
+.profile-contacts a,
+.profile-contacts span,
+.profile-projects-list .project-card,
+.profile-projects-list .project-card .project-title,
+.profile-projects-list .project-card p,
+.profile-projects-list .project-card a {
+    color: white !important;
+}
+
+.project-card-title a:hover,
+.project-owner a:hover,
+.participant-name a:hover,
+.project-author a:hover,
+.nav-link:hover,
+a:hover {
+    color: #1a1a2e !important;
+    transition: color 0.2s ease !important;
+}
+
+.skill-chip,
+.skills-container .skill,
+.project-skills .skill,
+.project-skills span,
+.skills-list span,
+.filter-chip {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: 4px 14px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    margin: 4px !important;
+}
+
+.filter-chip.active,
+.skill-chip.active {
+    background: rgba(255, 255, 255, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+input, textarea, select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    color: white !important;
+    padding: 10px !important;
+}
+
+input:focus, textarea:focus {
+    outline: none !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+label {
+    color: white !important;
+}
+
+.avatar {
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+}
+
+.profile-container,
+.profile-header,
+.profile-info,
+.profile-details,
+.profile-contacts {
+    background: transparent !important;
+}
+
+.profile-projects-list .project-card {
+    margin-bottom: 20px !important;
+}
+
+.project-status {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 4px 12px;
+    color: white;
+}
+
+.project-status-black {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 4px 12px;
+    color: white;
+}
+
+.profile-container .project-card,
+.profile-container .profile-projects-list > div,
+.profile-container .projects-list > div,
+.profile-container .user-projects > div,
+.profile-container div:has(.project-status-black),
+.profile-container div:has(.project-date) {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(14px) !important;
+    border-radius: 24px !important;
+    transition: all 0.3s ease !important;
+}
+
+.profile-container .project-card *,
+.profile-container .profile-projects-list *,
+.profile-container .projects-list *,
+.profile-container .user-projects * {
+    color: white !important;
+}
+
+.profile-container .project-status,
+.profile-container .project-status-black,
+.profile-container h3,
+.profile-container h4 {
+    color: white !important;
+}
+
+.profile-container .project-date,
+.profile-container .date,
+.profile-container small:contains("2026") {
+    color: #1a1a2e !important;
+    font-weight: 600 !important;
+}
+
+.profile-container .project-participants {
+    color: white !important;
+}
+
+.profile-container .black-button,
+.profile-container a:contains("Открыть") {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 40px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: 6px 20px !important;
+    display: inline-block !important;
+    margin-top: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+body.users-change-password main,
+body > main:has(form[action*="change-password"]) {
+    display: block !important;
+}
+
+form[action*="change-password"], 
+.change-password-form,
+.password-change-form {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(16px) !important;
+    border-radius: 28px !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    padding: 35px !important;
+    max-width: 500px !important;
+    margin: 50px auto !important;
+    display: block !important;
+}
+
+form[action*="change-password"] h1,
+.change-password-form h1,
+.password-change-form h1 {
+    color: #1a1a2e !important;
+    text-align: center !important;
+    font-size: 28px !important;
+    margin-bottom: 25px !important;
+}
+
+form[action*="change-password"] label,
+.change-password-form label,
+.password-change-form label {
+    color: #1a1a2e !important;
+    font-weight: 600 !important;
+    display: block !important;
+    margin-top: 20px !important;
+}
+
+form[action*="change-password"] input,
+.change-password-form input,
+.password-change-form input {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 16px !important;
+    color: #1a1a2e !important;
+    padding: 12px !important;
+    width: 100% !important;
+    margin: 5px 0 !important;
+    font-weight: 500 !important;
+}
+
+form[action*="change-password"] button,
+.change-password-form button,
+.password-change-form button {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 40px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #1a1a2e !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    margin-top: 25px !important;
+    width: 48% !important;
+    cursor: pointer !important;
+}
+
+form[action*="change-password"] button:hover,
+.change-password-form button:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.cancel-button {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(16px) !important;
+    border-radius: 28px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 35px !important;
+    max-width: 500px !important;
+    margin: 50px auto !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.auth-card h2 {
+    color: #1a1a2e !important;
+    text-align: center !important;
+    font-size: 28px !important;
+    margin-bottom: 25px !important;
+}
+
+.auth-card label {
+    color: #1a1a2e !important;
+    font-weight: 600 !important;
+    display: block !important;
+    margin: 20px 0 8px 0 !important;
+}
+
+.auth-card input {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 16px !important;
+    color: #1a1a2e !important;
+    padding: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.auth-card input:focus {
+    outline: none !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.auth-card .form-actions {
+    display: flex !important;
+    gap: 15px !important;
+    margin-top: 30px !important;
+}
+
+.auth-card .cancel-button,
+.auth-card button[type="submit"] {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 40px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #1a1a2e !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    flex: 1 !important;
+}
+
+.auth-card .cancel-button:hover,
+.auth-card button[type="submit"]:hover {
+    background: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.project-card,
+.participant-card,
+.skills-filter-card,
+.profile-header,
+.project-skills,
+.project-participants-card {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.project-card:hover,
+.participant-card:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8),
+                0 0 25px rgba(255, 255, 255, 0.5),
+                0 0 35px rgba(200, 200, 255, 0.4) !important;
+}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/project_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/skills.css' %}">
+{% endblock %}
+
+{% with page_id="profile" %}
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-info">
+            {% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="Аватар" class="profile-avatar">
+            {% else %}
+                <img src="{% static 'images/default-avatar.png' %}" alt="Аватар по умолчанию" class="profile-avatar">
+            {% endif %}
+            <div class="profile-details">
+                <h2 class="profile-name">{{ profile.first_name }} {{ profile.last_name }}</h2>
+                <p class="profile-description">
+                    {{ profile.about|default:"Описание профиля пока не добавлено." }}
+                </p>
+                <div class="profile-contacts">
+                    {% if profile.email %}
+                    <span>{% include 'includes/svg/email.html' %} {{ profile.email }}</span>
+                    {% endif %}
+                    {% if profile.phone %}
+                    <span>{% include 'includes/svg/phone.html' %} {{ profile.phone }}</span>
+                    {% endif %}
+                    {% if profile.github_url %}
+                    <span>{% include 'includes/svg/github.html' %}
+                        <a href="{{ profile.github_url }}" target="_blank">GitHub</a>
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="profile-actions">
+            <a href="#"
+               class="black-button black-button-share share-button"
+               data-url="{% url 'users:detail' pk=profile.id %}">
+                {% include 'includes/svg/share.html' %}
+            </a>
+            {% if request.user.is_authenticated and request.user == profile %}
+            <a href="{% url 'users:edit_profile' %}" class="black-button">
+                {% include 'includes/svg/pen.html' %}
+                Редактировать
+            </a>
+            <a href="{% url 'projects:create' %}" class="black-button">
+                {% include 'includes/svg/plus.html' %}
+                Добавить проект
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <h3 class="profile-projects-heading">Проекты ({{ profile_projects.count }})</h3>
+
+    <div class="collapsed-project-grid">
+        {% for project in profile_projects %}
+        {% include 'includes/collapsed-project-card.html' %}
+        {% empty %}
+        <p class="profile-projects-empty">Пока нет проектов.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% endwith %}
