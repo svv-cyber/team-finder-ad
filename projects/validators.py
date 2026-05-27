@@ -25,9 +25,9 @@ def github_url_validator(value: str) -> None:
 
 
 def normalize_phone_digits(value: str) -> str:
-    v = value.strip()
-    if v.startswith("+7") and len(v) == PHONE_LENGTH_WITH_PLUS_SEVEN:
-        return v
-    if v.startswith("8") and len(v) == PHONE_LENGTH_WITH_EIGHT:
-        return "+7" + v[1:]
-    return v
+    normalized_value = value.strip()
+    if normalized_value.startswith("+7") and len(normalized_value) == PHONE_LENGTH_WITH_PLUS_SEVEN:
+        return normalized_value
+    if normalized_value.startswith("8") and len(normalized_value) == PHONE_LENGTH_WITH_EIGHT:
+        return "+7" + normalized_value[1:]
+    return normalized_value

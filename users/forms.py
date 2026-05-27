@@ -1,11 +1,8 @@
-import re
-
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 
-from projects.form_mixins import GithubUrlCleanMixin
-from projects.validators import normalize_phone_digits
+from projects.validators import github_url_validator
 from users.validators import validate_phone
 
 from users.constants import (
@@ -54,10 +51,16 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
 
 
-class ProfileEditForm(GithubUrlCleanMixin, forms.ModelForm):
+class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ("first_name", "last_name", "avatar", "about", "phone", "github_url")
+
+    def clean_github_url(self):
+        value = (self.cleaned_data.get("github_url") or "").strip()
+        if value:
+            github_url_validator(value)
+        return value
 
     def clean_phone(self):
         return validate_phone(

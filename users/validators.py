@@ -17,7 +17,12 @@ def validate_phone(value, exclude_user=None):
             "Пример: 89123456789 или +79123456789"
         )
     normalized = normalize_phone_digits(raw)
-    taken = User.objects.exclude(pk=exclude_user).exclude(phone="").filter(phone=normalized).exists()
+    taken = (
+        User.objects.exclude(pk=exclude_user)
+        .exclude(phone="")
+        .filter(phone=normalized)
+        .exists()
+    )
     if taken:
         raise ValidationError("Этот номер уже занят другим пользователем.")
     return normalized

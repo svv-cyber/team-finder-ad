@@ -1,27 +1,20 @@
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
 
 from users.constants import (
     USER_ABOUT_MAX_LENGTH,
-    USER_NAME_MAX_LENGTH,
     USER_PHONE_MAX_LENGTH,
-    USER_SURNAME_MAX_LENGTH,
 )
 from users.managers import UserManager
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractUser):
+    username = None
+
     email = models.EmailField(unique=True, verbose_name="Email")
-    first_name = models.CharField(
-        max_length=USER_NAME_MAX_LENGTH,
-        verbose_name="Имя"
-    )
-    last_name = models.CharField(
-        max_length=USER_SURNAME_MAX_LENGTH,
-        verbose_name="Фамилия"
-    )
+
     avatar = models.ImageField(
         upload_to="avatars/",
         verbose_name="Аватар"
@@ -40,9 +33,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         verbose_name="О себе"
     )
-    is_active = models.BooleanField(default=True, verbose_name="Активен")
-    is_staff = models.BooleanField(default=False, verbose_name="Стафф")
-    date_joined = models.DateTimeField(auto_now_add=True, verbose_name="Дата регистрации")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]

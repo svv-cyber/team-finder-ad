@@ -1,4 +1,5 @@
 from django.contrib.auth.models import BaseUserManager
+from users.avatar import build_letter_avatar
 
 
 class UserManager(BaseUserManager):
@@ -10,10 +11,10 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
-        from users.avatar import build_letter_avatar
 
         content = build_letter_avatar(user.first_name or "?")
         user.avatar.save(content.name, content, save=False)
+
         user.save(using=self._db)
         return user
 

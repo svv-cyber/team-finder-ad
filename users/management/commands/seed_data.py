@@ -65,8 +65,8 @@ class Command(BaseCommand):
                 user = User.objects.create_user(
                     email=item["email"],
                     password=DEFAULT_PASSWORD,
-                    first_name=item["first_name"],      
-                    last_name=item["last_name"],       
+                    first_name=item["first_name"],
+                    last_name=item["last_name"],
                     about=item.get("about", ""),
                     phone=item.get("phone", ""),
                     github_url=item.get("github_url", ""),

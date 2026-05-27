@@ -31,21 +31,12 @@ def project_list(request):
     queryset = (
         Project.objects.select_related("owner")
         .prefetch_related("participants", "skills")
-        .order_by("-created_at")
     )
     active_skill = (request.GET.get("skill") or "").strip()
     if active_skill:
         queryset = queryset.filter(skills__name=active_skill).distinct()
-    all_skills = Skill.objects.order_by("name")
+    all_skills = Skill.objects.all()  # сортировка в Meta модели Skill
     page_obj = paginate_queryset(request, queryset, PROJECTS_PER_PAGE)
-
-
-    print("=== DEBUG ===")
-    print(f"page_obj type: {type(page_obj)}")
-    print(f"has_other_pages: {page_obj.has_other_pages()}")
-    print(f"paginator.count: {page_obj.paginator.count}")
-    print(f"paginator.num_pages: {page_obj.paginator.num_pages}")
-    print("=== END DEBUG ===")
 
     return render(
         request,
@@ -154,7 +145,7 @@ def toggle_participate(request, pk):
 
 def skills_autocomplete(request):
     query = (request.GET.get("q") or "").strip()
-    queryset = Skill.objects.order_by("name")
+    queryset = Skill.objects.all()
     if query:
         queryset = queryset.filter(name__istartswith=query)
     queryset = queryset[:SKILL_AUTOCOMPLETE_LIMIT]
@@ -195,7 +186,10 @@ class ProjectSkillAddView(View):
             skill = get_object_or_404(Skill, pk=skill_id)
         elif name:
             with transaction.atomic():
-                skill, created = Skill.objects.get_or_create(name__iexact=name, defaults={"name": name})
+                skill, created = Skill.objects.get_or_create(
+                    name__iexact=name,
+                    defaults={"name": name}
+                )
                 if not created and skill.name != name:
                     skill.name = name
                     skill.save()

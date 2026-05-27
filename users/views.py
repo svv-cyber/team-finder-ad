@@ -28,15 +28,19 @@ def register_view(request):
 
 def login_view(request):
     form = LoginForm(request.POST or None)
-    if form.is_valid():
-        email = form.cleaned_data["email"]
-        password = form.cleaned_data["password"]
-        user = authenticate(request, username=email, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect("projects:list")
+    if not form.is_valid():
+        return render(request, "users/login.html", {"form": form})
+
+    email = form.cleaned_data["email"]
+    password = form.cleaned_data["password"]
+    user = authenticate(request, username=email, password=password)
+
+    if user is None:
         form.add_error(None, "Неверный имейл или пароль")
-    return render(request, "users/login.html", {"form": form})
+        return render(request, "users/login.html", {"form": form})
+
+    login(request, user)
+    return redirect("projects:list")
 
 
 def logout_view(request):
@@ -56,7 +60,6 @@ class UserDetailView(DetailView):
             Project.objects.filter(Q(owner=profile) | Q(participants=profile))
             .distinct()
             .select_related("owner")
-            .order_by("-created_at")
         )
         return context
 
