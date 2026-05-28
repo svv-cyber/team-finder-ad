@@ -10,7 +10,7 @@ PHONE_LENGTH_WITH_PLUS_SEVEN = 12
 PHONE_LENGTH_WITH_EIGHT = 11
 
 
-def github_url_validator(value: str) -> None:
+def validate_github_url(value: str) -> None:
     if not value:
         return
     parsed = urlparse(value)

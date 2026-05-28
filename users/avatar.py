@@ -4,16 +4,10 @@ from io import BytesIO
 from django.core.files.base import ContentFile
 from PIL import Image, ImageDraw, ImageFont
 
-from users.constants import (
-    AVATAR_BG_CHANNEL_BASE,
-    AVATAR_BG_CHANNEL_RANGE,
-    AVATAR_FALLBACK_FONT,
-    AVATAR_FONT_SIZE_PX,
-    AVATAR_PRIMARY_FONT,
-    AVATAR_SIZE_PX,
-    AVATAR_TEXT_COLOR,
-    AVATAR_TEXT_VERTICAL_OFFSET_PX,
-)
+from users.constants import (AVATAR_BG_CHANNEL_BASE, AVATAR_BG_CHANNEL_RANGE,
+                             AVATAR_FALLBACK_FONT, AVATAR_FONT_SIZE_PX,
+                             AVATAR_PRIMARY_FONT, AVATAR_SIZE_PX,
+                             AVATAR_TEXT_COLOR, AVATAR_TEXT_VERTICAL_OFFSET_PX)
 
 
 def _load_font():

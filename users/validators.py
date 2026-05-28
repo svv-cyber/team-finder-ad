@@ -1,7 +1,9 @@
 import re
+
 from django.core.exceptions import ValidationError
-from users.models import User
+
 from projects.validators import normalize_phone_digits
+from users.models import User
 
 PHONE_PATTERN = re.compile(r"^(?:\+7|8)\d{10}$")
 

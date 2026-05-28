@@ -1,4 +1,5 @@
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import (authenticate, login, logout,
+                                 update_session_auth_hash)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect, render
@@ -8,12 +9,8 @@ from django.views.generic.edit import FormView
 
 from projects.models import Project
 from users.constants import USERS_PER_PAGE
-from users.forms import (
-    LoginForm,
-    ProfileEditForm,
-    RegisterForm,
-    UserPasswordChangeForm,
-)
+from users.forms import (LoginForm, ProfileEditForm, RegisterForm,
+                         UserPasswordChangeForm)
 from users.models import User
 from users.services import paginate_queryset
 
@@ -65,7 +62,7 @@ class UserDetailView(DetailView):
 
 
 def participants_list(request):
-    queryset = User.objects.order_by("-date_joined", "-id")
+    queryset = User.objects.all() 
     page_obj = paginate_queryset(request, queryset, USERS_PER_PAGE)
     return render(
         request,

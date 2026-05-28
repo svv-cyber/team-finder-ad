@@ -7,7 +7,6 @@ from django.db import transaction
 from projects.models import Project, Skill
 from users.models import User
 
-
 DEFAULT_PASSWORD = "password"
 DEFAULT_DATA_PATH = Path(__file__).resolve().parent / "seed_data.json"
 

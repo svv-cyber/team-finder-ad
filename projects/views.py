@@ -15,11 +15,8 @@ from projects.constants import PROJECTS_PER_PAGE, SKILL_AUTOCOMPLETE_LIMIT
 from projects.forms import ProjectForm
 from projects.mixins import OwnerOrStaffMixin
 from projects.models import Project, Skill
-from projects.services import (
-    is_project_participant,
-    add_project_participant,
-    remove_project_participant,
-)
+from projects.services import (add_project_participant, is_project_participant,
+                               remove_project_participant)
 from users.services import paginate_queryset
 
 
@@ -35,7 +32,7 @@ def project_list(request):
     active_skill = (request.GET.get("skill") or "").strip()
     if active_skill:
         queryset = queryset.filter(skills__name=active_skill).distinct()
-    all_skills = Skill.objects.all()  # сортировка в Meta модели Skill
+    all_skills = Skill.objects.all()
     page_obj = paginate_queryset(request, queryset, PROJECTS_PER_PAGE)
 
     return render(

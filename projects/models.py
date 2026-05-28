@@ -2,11 +2,9 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-from projects.constants import (
-    PROJECT_NAME_MAX_LENGTH,
-    PROJECT_STATUS_MAX_LENGTH,
-    SKILL_NAME_MAX_LENGTH,
-)
+from projects.constants import (PROJECT_NAME_MAX_LENGTH,
+                                PROJECT_STATUS_MAX_LENGTH,
+                                SKILL_NAME_MAX_LENGTH)
 
 
 class Skill(models.Model):

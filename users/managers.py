@@ -1,4 +1,5 @@
 from django.contrib.auth.models import BaseUserManager
+
 from users.avatar import build_letter_avatar
 
 

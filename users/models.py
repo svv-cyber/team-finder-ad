@@ -3,10 +3,7 @@ from django.db import models
 from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
 
-from users.constants import (
-    USER_ABOUT_MAX_LENGTH,
-    USER_PHONE_MAX_LENGTH,
-)
+from users.constants import USER_ABOUT_MAX_LENGTH, USER_PHONE_MAX_LENGTH
 from users.managers import UserManager
 
 
@@ -42,7 +39,7 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
-        ordering = ["-date_joined"]
+        ordering = ["-date_joined","-id"]
 
     def __str__(self):
         return self.email

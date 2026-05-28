@@ -2,15 +2,14 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 
-from projects.validators import github_url_validator
-from users.validators import validate_phone
-
+from projects.validators import validate_github_url
 from users.constants import (
+    AVATAR_MAX_SIZE_BYTES,
+    AVATAR_MAX_SIZE_MB,
     USER_NAME_MAX_LENGTH,
     USER_SURNAME_MAX_LENGTH,
-    AVATAR_MAX_SIZE_MB,
-    AVATAR_MAX_SIZE_BYTES,
 )
+from users.validators import validate_phone
 
 User = get_user_model()
 
@@ -21,12 +20,6 @@ class RegisterForm(forms.Form):
     email = forms.EmailField(label="Email")
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
     password_confirm = forms.CharField(label="Подтверждение пароля", widget=forms.PasswordInput)
-
-    def clean_email(self):
-        email = self.cleaned_data["email"].strip().lower()
-        if User.objects.filter(email__iexact=email).exists():
-            raise forms.ValidationError("Пользователь с таким email уже зарегистрирован.")
-        return email
 
     def clean(self):
         cleaned_data = super().clean()
@@ -59,7 +52,7 @@ class ProfileEditForm(forms.ModelForm):
     def clean_github_url(self):
         value = (self.cleaned_data.get("github_url") or "").strip()
         if value:
-            github_url_validator(value)
+            validate_github_url(value)
         return value
 
     def clean_phone(self):
